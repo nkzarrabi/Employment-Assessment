@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Linked Assessments</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for linked_assessment in linked_assessments %}
+        <tr>
+          <td>{{ linked_assessment.name }}</td>
+          <td>{{ linked_assessment.description }}</td>
+          <td>{{ linked_assessment.role.name }}</td>
+          <td>
+            <a href="{% url 'linked_assessment_update' linked_assessment.pk %}">Edit</a>
+            <a href="{% url 'linked_assessment_delete' linked_assessment.pk %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'linked_assessment_create' %}">Add Linked Assessment</a>
+{% endblock %}

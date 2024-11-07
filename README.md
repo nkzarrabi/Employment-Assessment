@@ -34,3 +34,33 @@ This app leverages AI to assess candidates’ fit based on customizable HR-defin
 ### Phase 5: Deployment & Maintenance
 - Deploy the app and set up monitoring and continuous improvement cycles.
 
+## Role-Specific Customization Module
+
+### Overview
+The role-specific customization module allows HR to configure specific criteria for each role with relevant weights, linked assessments, and customization options. This module provides a flexible and comprehensive way to tailor assessment requirements based on the unique needs of each job role.
+
+### Features
+- **Role Management**: Create, update, and delete roles with specific criteria and linked assessments.
+- **Criteria Management**: Define, customize, and weigh criteria for each role.
+- **Linked Assessments**: Link specific assessments to roles and manage their details.
+
+### Instructions for HR
+1. **Access the Role Customization Module**: Navigate to the HR dashboard and click on the "Role Customization" link.
+2. **Create a New Role**:
+   - Click on "Add Role".
+   - Enter the role name and description.
+   - Save the role.
+3. **Define Criteria for a Role**:
+   - Select a role from the list.
+   - Click on "Add Criteria".
+   - Enter the criteria name and weight.
+   - Save the criteria.
+4. **Link Assessments to a Role**:
+   - Select a role from the list.
+   - Click on "Add Linked Assessment".
+   - Enter the assessment name and description.
+   - Save the linked assessment.
+5. **Update or Delete Roles, Criteria, and Linked Assessments**:
+   - Use the edit and delete options available in the role, criteria, and linked assessment lists.
+
+By following these instructions, HR can effectively manage role-specific criteria and assessments, ensuring that each role has tailored assessment requirements that align with the organization's needs.
