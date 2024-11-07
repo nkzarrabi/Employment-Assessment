@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Linked Assessment</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+  </form>
+  <a href="{% url 'linked_assessment_list' %}">Back to Linked Assessments</a>
+{% endblock %}

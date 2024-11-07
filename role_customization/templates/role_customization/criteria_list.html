@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Criteria List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for criterion in criteria %}
+        <tr>
+          <td>{{ criterion.name }}</td>
+          <td>{{ criterion.weight }}</td>
+          <td>{{ criterion.role.name }}</td>
+          <td>
+            <a href="{% url 'criteria_update' criterion.pk %}">Edit</a>
+            <a href="{% url 'criteria_delete' criterion.pk %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'criteria_create' %}">Add Criteria</a>
+{% endblock %}
