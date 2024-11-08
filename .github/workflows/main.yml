@@ -12,6 +12,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -25,18 +40,26 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install autopep8  # Ensure autopep8 is installed
+        pip install autopep8 flake8 pytest pytest-django
+
+    - name: Set environment variables
+      run: |
+        # Set PYTHONPATH to the root directory
+        echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+        # Ensure DJANGO_SETTINGS_MODULE is correctly pointing to your settings
+        echo "DJANGO_SETTINGS_MODULE=Employment-Assessment.settings" >> $GITHUB_ENV
+        # Set database URL for Django
+        echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/test_db" >> $GITHUB_ENV
 
     - name: Run autopep8
       run: |
         find . -name "*.py" | xargs autopep8 --in-place --aggressive --aggressive
 
     - name: Lint with flake8
-      run: |
-        pip install flake8
-        flake8 .
+      run: flake8 .
+
+    - name: Run migrations
+      run: python manage.py migrate
 
     - name: Run tests
-      run: |
-        pip install pytest
-        pytest
+      run: pytest
