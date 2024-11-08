@@ -8,6 +8,8 @@ class CoreValues:
     def remove_value(self, name):
         if name in self.values:
             del self.values[name]
+        else:
+            raise KeyError(f"The value '{name}' is not in the list of values")
 
     def update_value(self, name, weight):
         if name in self.values:
