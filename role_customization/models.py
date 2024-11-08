@@ -1,11 +1,13 @@
 from django.db import models
 
+
 class Role(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
 
     def __str__(self):
         return self.name
+
 
 class Criteria(models.Model):
     name = models.CharField(max_length=100)
@@ -14,6 +16,7 @@ class Criteria(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class LinkedAssessment(models.Model):
     name = models.CharField(max_length=100)

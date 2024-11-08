@@ -1,5 +1,6 @@
 from core_values import CoreValues
 
+
 class HRInterface:
     def __init__(self):
         self.core_values = CoreValues()
@@ -23,6 +24,7 @@ class HRInterface:
     def adjust_core_value_weighting(self, name, weight):
         self.core_values.adjust_weighting(name, weight)
         print(f"Adjusted core value: {name} to new weight: {weight}")
+
 
 # Example usage
 if __name__ == "__main__":

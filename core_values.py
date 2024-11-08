@@ -1,8 +1,9 @@
 from typing import Dict
 
+
 class CoreValues:
     def __init__(self):
-        self.values: Dict[str,float] = {}
+        self.values: Dict[str, float] = {}
 
     def add_value(self, name, weight):
         self.values[name] = weight
