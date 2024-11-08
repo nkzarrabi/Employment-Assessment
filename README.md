@@ -19,7 +19,7 @@ This app leverages AI to assess candidates’ fit based on customizable HR-defin
 ## High-Level Roadmap
 ### Phase 1: Criteria Definition & Data Preparation
 - Define modular criteria structure and database schema.
-- Create HR interface for defining and managing criteria.
+- Implement HR interface for defining and managing criteria, including adding, removing, and adjusting assessment criteria, as well as defining weights for each criterion.
 
 ### Phase 2: Model Development
 - Train predictive models for scoring assessments.
