@@ -1,21 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useCriterion } from '../hooks/useCriterion';
 
 const HRInterface = () => {
-  const [criteria, setCriteria] = useState([]);
-  const [newCriterion, setNewCriterion] = useState('');
+  const { criteria, newCriterion, setNewCriterion, addCriterion, removeCriterion } = useCriterion();
   const [weights, setWeights] = useState({});
-
-  const addCriterion = () => {
-    if (newCriterion.trim() !== '') {
-      setCriteria([...criteria, newCriterion]);
-      setNewCriterion('');
-    }
-  };
-
-  const removeCriterion = (index) => {
-    const updatedCriteria = criteria.filter((_, i) => i !== index);
-    setCriteria(updatedCriteria);
-  };
 
   const updateWeight = (index, weight) => {
     setWeights({ ...weights, [index]: weight });
