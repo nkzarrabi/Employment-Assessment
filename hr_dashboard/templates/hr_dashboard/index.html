@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>HR Dashboard</title>
-    <script src="{% static 'frontend/build/static/js/main.js' %}"></script>
 </head>
 <body>
     <h1>Welcome to the HR Dashboard</h1>
@@ -11,6 +10,58 @@
         <li><a href="{% url 'criteria_list' %}">Manage Criteria</a></li>
         <li><a href="{% url 'linked_assessment_list' %}">Manage Linked Assessments</a></li>
     </ul>
-    <div id="hr-interface-root"></div>
+    <div id="hr-interface"></div>
+    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { useCriterion } = window;
+
+        const HRInterface = () => {
+            const { criteria, newCriterion, setNewCriterion, addCriterion, removeCriterion, loading } = useCriterion();
+            const [weights, setWeights] = useState({});
+
+            const updateWeight = (index, weight) => {
+                setWeights({ ...weights, [index]: weight });
+            };
+
+            return (
+                <div>
+                    <h2>HR Interface for Criteria Management</h2>
+                    <div>
+                        <input
+                            type="text"
+                            value={newCriterion}
+                            onChange={(e) => setNewCriterion(e.target.value)}
+                            placeholder="Enter new criterion"
+                        />
+                        <button onClick={addCriterion} disabled={loading}>
+                            {loading ? 'Adding...' : 'Add Criterion'}
+                        </button>
+                    </div>
+                    {loading && <p>Loading...</p>}
+                    <ul>
+                        {criteria.map((criterion, index) => (
+                            <li key={index}>
+                                {criterion.name}
+                                <button onClick={() => removeCriterion(index)} disabled={loading}>
+                                    {loading ? 'Removing...' : 'Remove'}
+                                </button>
+                                <input
+                                    type="number"
+                                    value={weights[index] || ''}
+                                    onChange={(e) => updateWeight(index, e.target.value)}
+                                    placeholder="Enter weight"
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<HRInterface />, document.getElementById('hr-interface'));
+    </script>
 </body>
 </html>
