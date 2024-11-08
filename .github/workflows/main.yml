@@ -23,12 +23,12 @@ jobs:
 
     - name: Install Node.js dependencies
       run: |
-        cd src
+        cd react_app
         npm install
 
     - name: Build React app
       run: |
-        cd src
+        cd react_app
         npm run build
 
     - name: Collect static files
