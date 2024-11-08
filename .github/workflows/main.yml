@@ -43,8 +43,7 @@ jobs:
       env:
         DJANGO_SETTINGS_MODULE: EmploymentAssessment.settings
       run: |
-        pip install pytest
-        pytest
+        python manage.py test
 
   deploy:
     runs-on: ubuntu-latest
