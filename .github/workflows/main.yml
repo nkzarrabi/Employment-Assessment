@@ -16,6 +16,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Node.js dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Build React app
+      run: |
+        cd frontend
+        npm run build
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -44,21 +59,6 @@ jobs:
         DJANGO_SETTINGS_MODULE: EmploymentAssessment.settings
       run: |
         python manage.py test
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install Node.js dependencies
-      run: |
-        cd frontend
-        npm install
-
-    - name: Build React app
-      run: |
-        cd frontend
-        npm run build
 
     - name: Collect static files
       env:
