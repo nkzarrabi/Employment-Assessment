@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HRInterface from './components/HRInterface';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HRInterface />
+    <App />
   </React.StrictMode>,
-  document.getElementById('hr-interface-root')
+  document.getElementById('root')
 );
