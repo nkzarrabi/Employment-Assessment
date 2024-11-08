@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>HR Dashboard</title>
+    <script src="{% static 'frontend/build/static/js/main.js' %}"></script>
 </head>
 <body>
     <h1>Welcome to the HR Dashboard</h1>
@@ -11,6 +12,5 @@
         <li><a href="{% url 'linked_assessment_list' %}">Manage Linked Assessments</a></li>
     </ul>
     <div id="hr-interface-root"></div>
-    <script src="{% static 'frontend/build/static/js/main.js' %}"></script>
 </body>
 </html>
