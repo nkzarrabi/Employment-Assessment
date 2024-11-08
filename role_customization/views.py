@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Role, Criteria, LinkedAssessment
-from .forms import RoleForm, CriteriaForm, LinkedAssessmentForm
+from .forms import RoleForm, CriteriaForm, AssessmentForm
 
 # Role Views
 def role_list(request):
@@ -75,23 +75,23 @@ def linked_assessment_list(request):
 
 def linked_assessment_create(request):
     if request.method == 'POST':
-        form = LinkedAssessmentForm(request.POST)
+        form = AssessmentForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('linked_assessment_list')
     else:
-        form = LinkedAssessmentForm()
+        form = AssessmentForm()
     return render(request, 'role_customization/linked_assessment_form.html', {'form': form})
 
 def linked_assessment_update(request, pk):
     linked_assessment = get_object_or_404(LinkedAssessment, pk=pk)
     if request.method == 'POST':
-        form = LinkedAssessmentForm(request.POST, instance=linked_assessment)
+        form = AssessmentForm(request.POST, instance=linked_assessment)
         if form.is_valid():
             form.save()
             return redirect('linked_assessment_list')
     else:
-        form = LinkedAssessmentForm(instance=linked_assessment)
+        form = AssessmentForm(instance=linked_assessment)
     return render(request, 'role_customization/linked_assessment_form.html', {'form': form})
 
 def linked_assessment_delete(request, pk):
