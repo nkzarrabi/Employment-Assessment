@@ -32,7 +32,7 @@ jobs:
 
     - name: Run autopep8
       run: |
-        find . -name "*.py" | xargs autopep8 --in-place --aggressive --aggressive
+        autopep8 --in-place --aggressive --aggressive .
 
     - name: Lint with flake8
       run: |
