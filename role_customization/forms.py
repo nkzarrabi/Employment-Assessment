@@ -11,7 +11,7 @@ class CriteriaForm(forms.ModelForm):
         model = Criteria
         fields = ['name', 'weight', 'role']
 
-class LinkedAssessmentForm(forms.ModelForm):
+class AssessmentForm(forms.ModelForm):
     class Meta:
         model = LinkedAssessment
         fields = ['name', 'description', 'role']
