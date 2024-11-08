@@ -8,6 +8,7 @@ This app leverages AI to assess candidates’ fit based on customizable HR-defin
 - **Flexible Cognitive Assessment Options**: Supports multiple assessment types (e.g., Raven’s Progressive Matrices for visual processors).
 - **Role-Specific Configurations**: Enables HR to tailor assessment requirements and weights by job role.
 - **Candidate-Friendly Interface**: Provides guidance on selecting assessments best aligned with each candidate’s cognitive strengths.
+- **Core Values Module**: Allows HR to adjust weightings for core values like collaboration, innovation, and adaptability.
 
 ## Technologies
 - **Backend**: Python, Django/Flask
