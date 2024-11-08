@@ -11,9 +11,10 @@ class CoreValues:
         else:
             raise KeyError(f"The value '{name}' is not in the list of values")
 
-    def update_value(self, name, weight):
         if name in self.values:
             self.values[name] = weight
+        else:
+            raise KeyError(f"The value '{name}' is not in the list of values")
 
     def adjust_weighting(self, name, weight):
         if name in self.values:
