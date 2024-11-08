@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const useCriterion = (initialCriteria = [], initialNewCriterion = '') => {
+const useCriterion = (initialCriteria = [], initialNewCriterion = '') => {
   const [criteria, setCriteria] = useState(initialCriteria);
   const [newCriterion, setNewCriterion] = useState(initialNewCriterion);
   const [loading, setLoading] = useState(false);
@@ -53,3 +53,5 @@ export const useCriterion = (initialCriteria = [], initialNewCriterion = '') => 
 
   return { criteria, newCriterion, setNewCriterion, addCriterion, removeCriterion, loading };
 };
+
+export default useCriterion;

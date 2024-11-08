@@ -117,3 +117,6 @@ def criteria_data(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def hr_interface(request):
+    return render(request, 'hr_dashboard/index.html')
