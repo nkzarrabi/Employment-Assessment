@@ -1,6 +1,6 @@
 class CoreValues:
     def __init__(self):
-        self.values = {}
+        self.values: Dict[str,float] = {}
 
     def add_value(self, name, weight):
         self.values[name] = weight
