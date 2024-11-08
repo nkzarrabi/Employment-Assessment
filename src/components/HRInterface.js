@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCriterion } from '../hooks/useCriterion';
 
 const HRInterface = () => {
-  const { criteria, newCriterion, setNewCriterion, addCriterion, removeCriterion } = useCriterion();
+  const { criteria, newCriterion, setNewCriterion, addCriterion, removeCriterion, loading } = useCriterion();
   const [weights, setWeights] = useState({});
 
   const updateWeight = (index, weight) => {
@@ -19,13 +19,18 @@ const HRInterface = () => {
           onChange={(e) => setNewCriterion(e.target.value)}
           placeholder="Enter new criterion"
         />
-        <button onClick={addCriterion}>Add Criterion</button>
+        <button onClick={addCriterion} disabled={loading}>
+          {loading ? 'Adding...' : 'Add Criterion'}
+        </button>
       </div>
+      {loading && <p>Loading...</p>}
       <ul>
         {criteria.map((criterion, index) => (
           <li key={index}>
-            {criterion}
-            <button onClick={() => removeCriterion(index)}>Remove</button>
+            {criterion.name}
+            <button onClick={() => removeCriterion(index)} disabled={loading}>
+              {loading ? 'Removing...' : 'Remove'}
+            </button>
             <input
               type="number"
               value={weights[index] || ''}
