@@ -2,9 +2,9 @@
   "name": "employment-assessment",
   "version": "1.0.0",
   "description": "Employment Assessment React App",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
