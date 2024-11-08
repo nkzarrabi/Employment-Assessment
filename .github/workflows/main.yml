@@ -23,13 +23,19 @@ jobs:
 
     - name: Install Node.js dependencies
       run: |
-        cd frontend
+        cd src
         npm install
 
     - name: Build React app
       run: |
-        cd frontend
+        cd src
         npm run build
+
+    - name: Collect static files
+      env:
+        DJANGO_SETTINGS_MODULE: EmploymentAssessment.settings
+      run: |
+        python manage.py collectstatic --noinput
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -59,12 +65,6 @@ jobs:
         DJANGO_SETTINGS_MODULE: EmploymentAssessment.settings
       run: |
         python manage.py test
-
-    - name: Collect static files
-      env:
-        DJANGO_SETTINGS_MODULE: EmploymentAssessment.settings
-      run: |
-        python manage.py collectstatic --noinput
 
   deploy:
     runs-on: ubuntu-latest
