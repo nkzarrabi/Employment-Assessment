@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -16,6 +16,7 @@
     "react-scripts": "4.0.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0"
   },
