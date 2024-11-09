@@ -74,7 +74,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Deploy to production
+    - name: Configure Git user
       run: |
-        echo "Deploying to production..."
-        # Add your deployment script here
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Build React app
+      run: |
+        cd react_app
+        npm run build
+
+    - name: Deploy to Github Pages
+      run: |
+        cd react_app
+        git init
+        git add build
+        git commit -m 'Deploy to Github Pages'
+        git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/nkzarrabi/Employment-Assessment.git" master:gh-pages

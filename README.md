@@ -64,3 +64,44 @@ The role-specific customization module allows HR to configure specific criteria 
    - Use the edit and delete options available in the role, criteria, and linked assessment lists.
 
 By following these instructions, HR can effectively manage role-specific criteria and assessments, ensuring that each role has tailored assessment requirements that align with the organization's needs.
+
+## Deployment to Github Pages
+
+### Prerequisites
+- Ensure you have a Github repository for your project.
+- Ensure you have Github Pages enabled for your repository.
+
+### Steps
+1. **Add `homepage` to `package.json`**:
+   - Open `react_app/package.json`.
+   - Add the following line: `"homepage": "https://<your-github-username>.github.io/<your-repo-name>"`.
+
+2. **Update Github Actions Workflow**:
+   - Open `.github/workflows/main.yml`.
+   - Add the following steps to the `deploy` job:
+     ```yaml
+     - name: Configure Git user
+       run: |
+         git config --global user.name 'github-actions[bot]'
+         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+     - name: Build React app
+       run: |
+         cd react_app
+         npm run build
+
+     - name: Deploy to Github Pages
+       run: |
+         cd react_app
+         git init
+         git add build
+         git commit -m 'Deploy to Github Pages'
+         git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/<your-github-username>/<your-repo-name>.git" master:gh-pages
+     ```
+
+3. **Commit and Push Changes**:
+   - Commit and push the changes to your repository.
+   - Github Actions will automatically build and deploy your React app to Github Pages.
+
+4. **Access Your Deployed App**:
+   - Open your browser and navigate to `https://<your-github-username>.github.io/<your-repo-name>` to see your deployed React app.

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Employment Assessment React App",
   "main": "src/index.js",
+  "homepage": "https://nkzarrabi.github.io/Employment-Assessment",
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
