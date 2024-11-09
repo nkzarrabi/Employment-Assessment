@@ -1,3 +1,9 @@
 # .flake8
 [flake8]
 max-line-length = 120
+exclude = 
+    node_modules,
+    react_app/node_modules,
+    migrations,
+    staticfiles,
+    frontend/build
