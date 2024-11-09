@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useCriterion from '../hooks/useCriterion';
+import { useCriterion } from '../hooks/useCriterion';
 
 const HRInterface = () => {
   const { criteria, newCriterion, setNewCriterion, addCriterion, removeCriterion, loading } = useCriterion();

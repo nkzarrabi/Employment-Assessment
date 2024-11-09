@@ -16,5 +16,4 @@ urlpatterns = [
     path('linked_assessments/<int:pk>/edit/', views.linked_assessment_update, name='linked_assessment_update'),
     path('linked_assessments/<int:pk>/delete/', views.linked_assessment_delete, name='linked_assessment_delete'),
     path('api/criteria/', views.criteria_data, name='criteria_data'),
-    path('hr_interface/', views.hr_interface, name='hr_interface'),
 ]
