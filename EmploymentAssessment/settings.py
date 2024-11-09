@@ -130,3 +130,4 @@ STATICFILES_DIRS = [
 
 # Ensure STATIC_ROOT is set for collecting static files in production
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where `collectstatic` will collect files for deployment
+SESSION_COOKIE_SECURE = True
