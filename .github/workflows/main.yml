@@ -21,10 +21,19 @@ jobs:
       with:
         node-version: '14'
 
+    - name: Clear cache
+      run: |
+        rm -rf ~/.npm
+
     - name: Install Node.js dependencies
       run: |
         cd react_app
         npm install
+
+    - name: Install react-scripts
+      run: |
+        cd react_app
+        npm install react-scripts
 
     - name: Build React app
       run: |
