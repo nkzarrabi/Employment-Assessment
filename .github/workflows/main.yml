@@ -78,25 +78,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    if: github.ref == 'refs/heads/main'
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Configure Git user
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-    - name: Build React app
-      run: |
-        cd react_app
-        npm run build
-
-    - name: Deploy to Github Pages
-      run: |
-        cd react_app
-        git init
-        git add build
-        git commit -m 'Deploy to Github Pages'
-        git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/nkzarrabi/Employment-Assessment.git" master:gh-pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: react_app/build
