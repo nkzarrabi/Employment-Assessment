@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4!$@#%&*()_+|~=`{}[]:";\'<>?,./'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -130,3 +130,4 @@ STATICFILES_DIRS = [
 
 # Ensure STATIC_ROOT is set for collecting static files in production
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where `collectstatic` will collect files for deployment
+SESSION_COOKIE_SECURE = True
