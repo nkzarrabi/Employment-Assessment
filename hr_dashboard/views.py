@@ -119,4 +119,4 @@ def criteria_data(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def hr_interface(request):
-    return render(request, 'hr_dashboard/index.html')
+    return render(request, 'index.html')
